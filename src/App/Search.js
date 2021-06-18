@@ -19,7 +19,7 @@ const Search = () => {
 
   const fetchApi = async (input) => {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${key}&type=video&part=snippet&maxResults=25&q=${input}`
+      `https://www.googleapis.com/youtube/v3/search?key=${key}&type=video&part=snippet&maxResults=5&q=${input}`
     );
     if (response.status >= 400 && response.status < 600) {
       console.log(`error: ${response.status}`);
