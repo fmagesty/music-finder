@@ -1,5 +1,7 @@
 body {
   overflow-x: hidden;
+  text-align: center;
+  background: hsl(0, 0%, 18.82%);
 }
 
 .main-image {
@@ -23,18 +25,35 @@ body {
   top: 0;
   z-index: 1;
 }
-
-.card-title {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.85);
-  font-size: 16px;
-  white-space: nowrap;
-}
 button > a {
   color: white;
   text-decoration: none;
   font-weight: 500;
   font-size: 16px;
+}
+.card-body {
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+.card-body > button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+#tickets {
+  color: aliceblue;
+}
+#title {
+  color: aliceblue;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.subtitle {
+  margin-top: 2rem;
+}
+
+img {
+  width: 160px;
+  height: 90px;
 }

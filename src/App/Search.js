@@ -1,25 +1,28 @@
 import React, { useState } from "react";
-import { InputGroup, Input, InputGroupAddon, Button } from "reactstrap";
+import {
+  InputGroup,
+  Input,
+  InputGroupAddon,
+  Button,
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardText,
+} from "reactstrap";
 import background from "../Assets/background.png";
 import config from "../config";
 
 const Search = () => {
   const [input, setInput] = useState("");
   const [cards, setCards] = useState("");
+  const [tickets, setTickets] = useState("");
   const key = config.API_KEY;
+  const key2 = config.API_KEY_2;
 
-  const handleEnter = (e) => {
-    if (e.charCode === 13) {
-      fetchApi(input);
-    }
-  };
-  const handleSubmit = () => {
-    fetchApi(input);
-  };
-
-  const fetchApi = async (input) => {
+  const fetchApiYoutube = async (input) => {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?key=${key}&type=video&part=snippet&maxResults=5&q=${input}`
+      `https://www.googleapis.com/youtube/v3/search?key=${key}&type=video&part=snippet&maxResults=6&q=${input}`
     );
     if (response.status >= 400 && response.status < 600) {
       console.log(`error: ${response.status}`);
@@ -27,17 +30,74 @@ const Search = () => {
     }
     const responseBody = await response.json();
     const data = responseBody.items;
-    console.log(data);
     const dataMap = data.map((item) => (
-      <div key={item.id.videoId}>
-        <h3>{item.id.videoId}</h3>
-        <p>{item.snippet.description}</p>
-        <a href={`https://www.youtube.com/watch?v=${item.id.videoId}`}>
-          <img src={item.snippet.thumbnails.high.url} alt={item.id.videoId} />
-        </a>
+      <div className="col-lg-4 mb-3" key={item.id.videoId}>
+        <Card style={{ width: "233" }} className="m-auto">
+          <a
+            href={`https://www.youtube.com/watch?v=${item.id.videoId}`}
+            target="a_blank"
+          >
+            <CardImg
+              top
+              style={{ width: "100%", height: "234px" }}
+              src={item.snippet.thumbnails.high.url}
+              alt="Card image cap"
+            />
+          </a>
+          <CardBody className="card-body">
+            <CardTitle tag="h5">{item.snippet.title}</CardTitle>
+            <CardText>{item.snippet.description}</CardText>
+            <Button color="secondary" onClick={handleDetalhes}>
+              Detalhes
+            </Button>
+          </CardBody>
+        </Card>
       </div>
     ));
     return setCards(dataMap);
+  };
+
+  const fetchApiTicketmaster = async () => {
+    const response = await fetch(
+      `https://app.ticketmaster.com/discovery/v2/attractions.json?apikey=${key2}&keyword=${input}`
+    );
+    if (response.status >= 400 && response.status < 600) {
+      console.log(`error: ${response.status}`);
+      throw new Error("Bad response from server");
+    }
+    const responseBody = await response.json();
+    console.log(responseBody);
+    const data = responseBody._embedded.attractions;
+    const dataMap = data.map((item) => (
+      <div>
+        <h3 className="subtitle">Evento: {item.name}</h3>
+        <a href={item.url || "tickets indisponíveis para este evento"}>
+          Compre seus tickets aqui{" "}
+        </a>
+        <br />
+        <img src={item.images[1].url} alt="event image" />
+        <br />
+      </div>
+    ));
+    return setTickets(dataMap);
+  };
+
+  const handleEnter = (e) => {
+    if (e.charCode === 13) {
+      fetchApiYoutube(input);
+      fetchApiTicketmaster(input);
+      document.getElementById("div-container").scrollIntoView();
+    }
+  };
+
+  const handleSubmit = () => {
+    fetchApiYoutube(input);
+    fetchApiTicketmaster(input);
+    document.getElementById("div-container").scrollIntoView();
+  };
+
+  const handleDetalhes = () => {
+    document.getElementById("title").scrollIntoView();
   };
 
   return (
@@ -69,9 +129,19 @@ const Search = () => {
           </InputGroup>
         </div>
       </div>
-      <ul>{cards}</ul>
+      <div
+        className="container my-5"
+        id="div-container"
+        style={{ height: "100vh" }}
+      >
+        <div className="row">{cards}</div>
+        <h1 id="title">Próximos eventos da banda {input}:</h1>
+        <div id="tickets">{tickets}</div>
+      </div>
     </div>
   );
 };
 
 export default Search;
+
+// https://app.ticketmaster.com/discovery/v2/attractions.json?apikey={API_KEY_2}&keyword={input}
