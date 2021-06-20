@@ -10,10 +10,10 @@ import {
   CardTitle,
   CardText,
 } from "reactstrap";
-import background from "../Assets/background.png";
-import config from "../config";
+import background from "../../Assets/background.png";
+import config from "../../config";
 
-const Search = () => {
+const Searchbar = () => {
   const [input, setInput] = useState("");
   const [cards, setCards] = useState("");
   const [tickets, setTickets] = useState("");
@@ -75,7 +75,7 @@ const Search = () => {
           Compre seus tickets aqui{" "}
         </a>
         <br />
-        <img src={item.images[1].url} alt="event image" />
+        <img src={item.images[1].url} alt="event" />
         <br />
       </div>
     ));
@@ -142,6 +142,6 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default Searchbar;
 
 // https://app.ticketmaster.com/discovery/v2/attractions.json?apikey={API_KEY_2}&keyword={input}
