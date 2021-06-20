@@ -29,4 +29,4 @@ Substitua os valores "API KEY DO YOUTUBE" e "API KEY TICKETMASTER" por suas resp
 
 6. Agora basta usar o comando `npm run start` e seu projeto clonado deverá rodar normalmente
 
-Estou a disposição para qualquer dúvida em relação ao projeto, basta me contactar pelo GitHub ou pelo e-mail fmagesty@gmail.com
+Estou a disposição para qualquer dúvida em relação ao projeto, basta me contactar pelo GitHub ou pelo [e-mail](fmagesty@gmail.com)
