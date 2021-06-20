@@ -25,6 +25,8 @@ Para organizar o código, bastou seguir o planejamento feito inicialmente no pap
 
 `export default config;`
 
-Substitua os valores "API KEY DO YOUTUBE" e "API KEY TICKETMASTER" por suas respectivas API keys 6. Agora basta usar o comando `npm run start` e seu projeto clonado deverá rodar normalmente
+Substitua os valores "API KEY DO YOUTUBE" e "API KEY TICKETMASTER" por suas respectivas API keys
+
+6. Agora basta usar o comando `npm run start` e seu projeto clonado deverá rodar normalmente
 
 Estou a disposição para qualquer dúvida em relação ao projeto, basta me contactar pelo GitHub ou pelo e-mail fmagesty@gmail.com
