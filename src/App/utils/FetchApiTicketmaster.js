@@ -10,7 +10,6 @@ const fetchApiTicketmaster = async (input) => {
     throw new Error("Bad response from server");
   }
   const responseBody = await response.json();
-  // console.log(responseBody);
   const ticketData = responseBody._embedded.attractions;
   return ticketData;
 };

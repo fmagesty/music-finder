@@ -1,13 +1,19 @@
 import React from "react";
-import VideoCard from "../VideoCard/VideoCard";
 import "./styles.css";
-import EventCards from "../EventCard/EventCards";
+import VideoCard from "../VideoCard/VideoCard";
+import TicketCard from "../TicketCard/TicketCard";
 
 const CardDisplay = ({ cards, tickets }) => {
   return (
     <div id="div-display" className="row">
-      {cards && cards.map((item) => <VideoCard cards={item} />)}
-      {tickets && tickets.map((item) => <EventCards tickets={item} />)}
+      {cards &&
+        cards.map((videoItem) => (
+          <VideoCard cards={videoItem} key={videoItem.id.videoId} />
+        ))}
+      {tickets &&
+        tickets.map((ticketItem) => (
+          <TicketCard tickets={ticketItem} key={ticketItem.id} />
+        ))}
     </div>
   );
 };

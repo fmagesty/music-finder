@@ -3,22 +3,20 @@ import { InputGroup, Input, InputGroupAddon, Button } from "reactstrap";
 import background from "../../assets/background.png";
 import "./styles.css";
 
-const Searchbar = ({ updateCardData }) => {
+const Searchbar = ({ updateVideoData, updateTicketData }) => {
   const [input, setInput] = useState("");
 
   const handleEnter = async (e) => {
     if (e.charCode === 13) {
-      await updateCardData(input);
-      // await fetchApiYoutube(input);
-      // await fetchApiTicketmaster(input);
+      await updateVideoData(input);
+      await updateTicketData(input);
       document.getElementById("div-display").scrollIntoView();
     }
   };
 
   const handleSubmit = async () => {
-    await updateCardData(input);
-    // await fetchApiYoutube(input);
-    // await fetchApiTicketmaster(input);
+    await updateVideoData(input);
+    await updateTicketData(input);
     document.getElementById("div-display").scrollIntoView();
   };
   return (

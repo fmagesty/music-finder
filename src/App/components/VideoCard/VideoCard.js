@@ -10,13 +10,12 @@ import {
 import "./styles.css";
 
 const VideoCards = ({ cards }) => {
-  console.log(cards);
   const handleDetalhes = () => {
-    document.getElementById("title").scrollIntoView();
+    document.getElementById("tickets-div").scrollIntoView();
   };
 
   return (
-    <div className="col-lg-4 mb-3" key={cards.id.videoId}>
+    <div className="col-lg-4 mb-3">
       <Card className="card" id="card">
         <a
           href={`https://www.youtube.com/watch?v=${cards && cards.id.videoId}`}
@@ -33,7 +32,7 @@ const VideoCards = ({ cards }) => {
           <CardTitle tag="h5">{cards && cards.snippet.title}</CardTitle>
           <CardText>{cards && cards.snippet.description}</CardText>
           <Button color="secondary" onClick={handleDetalhes}>
-            Detalhes
+            Eventos
           </Button>
         </CardBody>
       </Card>

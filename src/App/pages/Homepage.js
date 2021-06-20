@@ -8,17 +8,23 @@ const Homepage = () => {
   const [cards, setCards] = useState(undefined);
   const [tickets, setTickets] = useState(undefined);
 
-  const updateState = async (input) => {
+  const updateVideoState = async (input) => {
     const videoData = await fetchApiYoutube(input);
     setCards(videoData);
+  };
+
+  const updateTicketState = async (input) => {
     const ticketData = await fetchApiTicketmaster(input);
     setTickets(ticketData);
   };
 
   return (
     <div id="homepage-div">
-      <Searchbar updateVideoData={updateState} />
-      <CardDisplay cards={(cards, tickets)} />
+      <Searchbar
+        updateVideoData={updateVideoState}
+        updateTicketData={updateTicketState}
+      />
+      <CardDisplay cards={cards} tickets={tickets} />
     </div>
   );
 };
