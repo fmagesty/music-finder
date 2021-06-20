@@ -3,7 +3,7 @@ import config from "../../config";
 const fetchApiYoutube = async (input) => {
   const key = config.API_KEY;
   const response = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${key}&type=video&part=snippet&maxResults=3&q=${input}`
+    `https://www.googleapis.com/youtube/v3/search?key=${key}&type=video&part=snippet&maxResults=12&q=${input}`
   );
   if (response.status >= 400 && response.status < 600) {
     console.log(`error: ${response.status}`);
