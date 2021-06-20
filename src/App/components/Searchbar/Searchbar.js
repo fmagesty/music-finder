@@ -24,9 +24,11 @@ const Searchbar = ({ updateVideoData, updateTicketData }) => {
       className="main-image"
       style={{ backgroundImage: `url(${background})` }}
     >
-      <h1 className="procura-bandas">Procura Bandas</h1>
+      <h1 className="display-2 text-center text-white mb-3 procura-bandas">
+        Procura Bandas
+      </h1>
       <div className="input-div">
-        <InputGroup className="input-group">
+        <InputGroup size="lg" className="mb-3">
           <Input
             placeholder="Digite o nome da banda"
             value={input}
