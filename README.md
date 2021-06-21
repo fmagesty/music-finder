@@ -13,15 +13,15 @@ Para organizar o código, bastou seguir o planejamento feito inicialmente no pap
 ## Instruções de como rodar o projeto
 
 1. Primeiramente é necessário cloná-lo localmente em sua máquina. Isto pode ser feito através do comando: `git clone git@github.com:fmagesty/demo.git` (certifique-se de usá-lo em seu terminal)
-2. Instale as dependências do package.json utilizando `npm install` ou `yarn install`
+2. Instale as dependências do package.json utilizando o comando `npm install`
 3. Para utilizar as 2 APIs do projeto é necessário criar suas próprias API keys do Youtube e TicketMaster
-4. No diretório /src crie um arquivo chamado config.js
+4. No diretório /src renomeie o arquivo config.example.js para config.js
 5. Nele deve conter o seguinte código:
 
 ```js
 const config = {
-  API_KEY: "API KEY DO YOUTUBE",
-  API_KEY_2: "API KEY TICKETMASTER",
+  API_KEY: "key da api youtube",
+  API_KEY_2: "key da api ticketmaster",
 };
 
 export default config;
