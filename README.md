@@ -18,12 +18,14 @@ Para organizar o código, bastou seguir o planejamento feito inicialmente no pap
 4. No diretório /src crie um arquivo chamado config.js
 5. Nele deve conter o seguinte código:
 
-   `const config = {`
-   `API_KEY: "API KEY DO YOUTUBE",`
-   ` API_KEY_2: "API KEY TICKETMASTER",`
-   `};`
+```js
+const config = {
+  API_KEY: "API KEY DO YOUTUBE",
+  API_KEY_2: "API KEY TICKETMASTER",
+};
 
-`export default config;`
+export default config;
+```
 
 Substitua os valores "API KEY DO YOUTUBE" e "API KEY TICKETMASTER" por suas respectivas API keys
 
