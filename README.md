@@ -27,7 +27,7 @@ const config = {
 export default config;
 ```
 
-Substitua os valores "API KEY DO YOUTUBE" e "API KEY TICKETMASTER" por suas respectivas API keys
+Substitua os valores "key da api youtube" e "key da api ticketmaster" por suas respectivas API keys
 
 6. Agora basta usar o comando `npm run start` e seu projeto clonado deverá rodar normalmente
 
